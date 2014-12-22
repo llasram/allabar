@@ -37,11 +37,13 @@
      ;; Ch'rulthin, one is a circle and the other is within two shappes and
      ;; without two [corrected to "without three"] shapes.  [Agreed to mean the
      ;; third shape.]
-     (conde
-      [(membero ['circle 'blood _] ds)
-       (== [_ _ [_ _ 'chrulthin] _ _] ds)]
-      [(membero ['circle _ 'chrulthin] ds)
-       (== [_ _ [_ 'blood _] _ _] ds)])
+     (fresh [s]
+       (!= s 'circle)
+       (conde
+        [(membero ['circle 'blood _] ds)
+         (== [_ _ [s _ 'chrulthin] _ _] ds)]
+        [(membero ['circle _ 'chrulthin] ds)
+         (== [_ _ [s 'blood _] _ _] ds)]))
 
      ;; Neither the shape inscrybbed in chalk nor the thirde shappe from the
      ;; many-pointed star should have the word Wyrin spoken over them.
@@ -52,6 +54,10 @@
      (fresh [w]
        (!= w 'wyrin)
        (== [_ _ [_ _ w] _ _] ds))
+     ;; [exclusive]
+     (fresh [m]
+       (!= m 'chalk)
+       (== [_ _ [m _ _] _ _] ds))
 
      ;; Thou shouldst notte speaketh the words Shub'rignuth over the shape
      ;; inscrybbed in hair.
@@ -62,11 +68,13 @@
 
      ;; The shape inscrybbed in chalk should have either the word "Ch'rulthin"
      ;; fspokenne or is a squarre.
-     (membero ['square _ _] ds)
-     (membero [_ _ 'chrulthin] ds)
      (conde
-      [(membero [_ 'chalk 'chrulthin] ds)]
-      [(membero ['square 'chalk _] ds)])
+      [(fresh [s]
+         (!= s 'square)
+         (membero [s 'chalk 'chrulthin] ds))]
+      [(fresh [w]
+         (!= w 'chrulthin)
+         (membero ['square 'chalk w] ds))])
 
      ;; One of the shapes is ye pentacle.
      (membero ['pentacle _ _] ds)
@@ -110,4 +118,4 @@
 
 (defn -main
   [& args]
-  (pprint (solve 3)))
+  (pprint (solve 1)))

@@ -13,17 +13,7 @@ $ lein run
   [pentagram sand shubrignuth]
   [triangle ink chrulthin]
   [square chalk blugh]
-  [pentacle hair wyrin])
- ([pentagram hair rugnaroth]
-  [pentacle sand shubrignuth]
-  [circle blood chrulthin]
-  [square chalk blugh]
-  [triangle ink wyrin])
- ([pentacle hair rugnaroth]
-  [pentagram sand shubrignuth]
-  [circle blood chrulthin]
-  [square chalk blugh]
-  [triangle ink wyrin]))
+  [pentacle hair wyrin]))
 ```
 
 ## License
