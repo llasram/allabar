@@ -57,7 +57,7 @@
      ;; [exclusive]
      (fresh [m]
        (!= m 'chalk)
-       (== [_ _ [m _ _] _ _] ds))
+       (== [_ _ [_ m _] _ _] ds))
 
      ;; Thou shouldst notte speaketh the words Shub'rignuth over the shape
      ;; inscrybbed in hair.
